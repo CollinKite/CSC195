@@ -11,31 +11,37 @@ int main()
     int iVal1 = -1;
     short shVal2 = 0;
     int iVal3 = -2;
+    int shiz;
+    for (int i = 0; i < 2; i++)
+    {
+        std::cout << "\n V1 = " << iVal1;
+        std::cout << "\naddress of V1 = " << &iVal1;
 
-    std::cout << "\n V1 = " << iVal1 << "\n";
-    std::cout << "address of V1 = " << &iVal1;
+        std::cout << "\n value of V2 = " << shVal2;
+        std::cout << "\n address of V2 = " << &shVal2;
 
-    std::cout << "\n value of V2 = " << shVal2;
-    std::cout << "\n address of V2 = " << &shVal2;
+        std::cout << "\n value of V3 = " << iVal3;
+        std::cout << "\n address of V3 = " << &iVal3;
 
-    std::cout << "\n value of V3 = " << iVal3;
-    std::cout << "\n address of V3 = " << &iVal3;
+        std::cout << "\nsizeof(V1) " << sizeof(iVal1);
+        std::cout << "\nsizeof(V2) " << sizeof(shVal2);
+        std::cout << "\nsizeof(V3) " << sizeof(iVal3);
+        std::cin >> shiz;
+    }
 
-    std::cout << "\n\n !!! diff V1 and V3 = " << (&iVal1 - &iVal3);
 
-    std::cout << "\nsizeof(V1) " << sizeof(iVal1);
-    std::cout << "\nsizeof(V2) " << sizeof(shVal2);
-    std::cout << "\nsizeof(V3) " << sizeof(iVal3);
+    //std::cout << "\n\n !!! diff V1 and V3 = " << (&iVal1 - &iVal3);
+
+    int* ptr = NULL;
+    ptr = &iVal1;
+    std::cout << "\n\nValue of ptr = " << ptr; //prints Memory location of what ptr points too, in this case it's iVal1 memory location as referenced in line 31
+    std::cout << "\nvalue ptr points to " << *(ptr - 6); //De-reference "*" - Get's value of memory location. Reference = memory location/address "&"
+    //*ptr = 5;
+    std::cout << "\n value of iVal1 = " << iVal1;
+    //*(ptr + 11) = 12345; //Crash by writing random numbers to memory in the program
+
+
+
+    
 
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

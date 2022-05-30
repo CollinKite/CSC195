@@ -38,3 +38,11 @@ int View::getUserInt(string prompt, unsigned short low, unsigned short high) {
 
 	return iTemp;
 }
+
+char View::getUserChar(string prompt) {
+	cout << prompt;
+	char temp = NULL;
+	cin >> temp;
+
+	return temp;
+}

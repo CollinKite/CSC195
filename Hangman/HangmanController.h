@@ -10,13 +10,8 @@ namespace hm
 		HangmanController();
 		~HangmanController();
 		void SetupGame();
-		View view = View();
 	private:
-		void StartGame();
-		bool win; //Default false
-		std::vector<char>* guesses;
-		void PrintBoard(std::vector<char>& guesses);
-
+		View view;
 	};
 }
 

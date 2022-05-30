@@ -1,20 +1,21 @@
-#include "HangmanController.h"
+﻿#include "HangmanController.h"
 #include "View.h"
 #include "Model.h"
+#include "Game.h"
 
 
 hm::HangmanController::HangmanController()
 {
+	view = View();
+	
 }
 
 hm::HangmanController::~HangmanController()
 {
-	delete guesses;
 }
 
 void hm::HangmanController::SetupGame()
 {
-	
 	Model* model = new Model();
 	if (model->word != nullptr)
 	{
@@ -27,13 +28,16 @@ void hm::HangmanController::SetupGame()
 			switch (menu)
 			{
 			case 1:
-				StartGame();
+			{
+				Game* game = new Game(model->word);
+				game->StartGame();
+				delete game;
+				menu = 3;
 				break;
+			}
 			case 2:
 				view.Print(model->word->c_str());
 				break;
-			case 3:
-				delete model;
 			}
 		}
 	}
@@ -41,16 +45,5 @@ void hm::HangmanController::SetupGame()
 	{
 		view.Print("words.txt is not in Directory");
 	}
-	
+	delete model;
 }
-
-void hm::HangmanController::StartGame()
-{
-	
-}
-
-void hm::HangmanController::PrintBoard(std::vector<char>& guesses)
-{
-}
-
-

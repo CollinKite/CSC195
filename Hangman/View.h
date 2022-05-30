@@ -11,7 +11,6 @@ public:
 	void PrintMenu();
 	void Print(string statement);
 	int getUserInt(string prompt, unsigned short low, unsigned short high);
-private:
-
+	char getUserChar(string prompt);
 };
 

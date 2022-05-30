@@ -4,7 +4,7 @@
 
 Model::Model()
 {
-	int count = 0;
+	word = nullptr;
 	std::ifstream words;
 	words.open("words.txt");
 	if (words.is_open()) {
@@ -22,5 +22,4 @@ Model::Model()
 
 Model::~Model()
 {
-	delete[] word, wordList;
 }

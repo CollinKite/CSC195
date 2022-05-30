@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
+#include "HangmanController.h"
+
 
 using namespace std;
 
 int main()
 {
-	
+	hm::HangmanController controller  = hm::HangmanController();
+	controller.SetupGame();
 }

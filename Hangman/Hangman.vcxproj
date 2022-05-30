@@ -141,10 +141,17 @@
   <ItemGroup>
     <ClCompile Include="Hangman.cpp" />
     <ClCompile Include="HangmanController.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="color.hpp" />
     <ClInclude Include="HangmanController.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="View.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="words.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

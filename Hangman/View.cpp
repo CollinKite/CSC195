@@ -1,5 +1,6 @@
 #include "View.h"
 #include "color.hpp"
+
 View::View()
 {
 }
@@ -46,3 +47,124 @@ char View::getUserChar(string prompt) {
 
 	return temp;
 }
+
+void View::printAttemptsLeft(int attempts)
+{
+	std::cout << dye::red("Guesses Left: ");
+	for (int i = 0; i < attempts; i++)
+	{
+		std::cout << dye::red("*");
+	}
+    std::cout << std::endl;
+}
+
+//Got Ascii from https://github.com/codingcleverly/hangman_game/blob/main/hangman_functions.cpp
+void View::hangman(int attempts)
+{
+    if (attempts == 6)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+    else if (attempts == 5)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "  O   | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+    else if (attempts == 4)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "  O   | \n";
+        cout << "  |   | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+    else if (attempts == 3)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "  O   | \n";
+        cout << " /|   | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+    else if (attempts == 2)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "  O   | \n";
+        cout << " /|\\  | \n";
+        cout << "      | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+    else if (attempts == 1)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "  O   | \n";
+        cout << " /|\\  | \n";
+        cout << " /    | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+    else if (attempts == 0)
+    {
+        cout << "  +---+ \n";
+        cout << "  |   | \n";
+        cout << "  O   | \n";
+        cout << " /|\\  | \n";
+        cout << " / \\  | \n";
+        cout << "      | \n";
+        cout << " ========= \n";
+    }
+}
+
+    void View::printGuesses(std::vector<char>* guesses)
+    {
+        std::cout << dye::aqua("Letters Guessed [ ");
+        for (int i = 0; i < guesses->size(); i++)
+        {
+            std::cout << dye::aqua(guesses->at(i) + " ");
+
+        }
+        std::cout << dye::aqua("]") << std::endl;
+    }
+
+    void View::PrintWrongLetter()
+    {
+        std::cout << dye::red("Wrong Guess!") << std::endl;
+    }
+
+    void View::PrintCorrectLetter()
+    {
+        std::cout << dye::green("Correct!") << std::endl;
+    }
+
+    void View::PrintWord(string* word, vector<char>* correctGuesses)
+    {
+        for (int i = 0; i < word->length(); i++)
+        {
+            if (std::find(correctGuesses->begin(), correctGuesses->end(), word->at(i)) != correctGuesses->end()) {
+                std::cout << dye::green(word->at(i));
+            }
+            else
+            {
+                std::cout << dye::green("_");
+            }
+        }
+        std::cout << std::endl;
+    }

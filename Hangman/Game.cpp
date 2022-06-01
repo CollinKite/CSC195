@@ -36,7 +36,12 @@ void Game::game()
 		view.hangman(attempts);
 		view.printGuesses(guesses);
 		view.printAttemptsLeft(attempts);
-		view.PrintWord(word, correctGuesses);
+		if (view.PrintWord(word, correctGuesses))
+		{
+			gameRunning = false;
+			view.Print("You Won!");
+			return;
+		}
 		char guess = view.getUserChar("Please Enter a Letter: ");
 		//check if guess exists
 		bool duplicate = true;

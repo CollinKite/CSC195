@@ -138,10 +138,10 @@ void View::hangman(int attempts)
         std::cout << dye::aqua("Letters Guessed [ ");
         for (int i = 0; i < guesses->size(); i++)
         {
-            std::cout << dye::aqua(guesses->at(i) + " ");
+            std::cout << dye::aqua(guesses->at(i)) << " ";
 
         }
-        std::cout << dye::aqua("]") << std::endl;
+        std::cout << dye::aqua(" ]") << std::endl;
     }
 
     void View::PrintWrongLetter()
@@ -154,8 +154,9 @@ void View::hangman(int attempts)
         std::cout << dye::green("Correct!") << std::endl;
     }
 
-    void View::PrintWord(string* word, vector<char>* correctGuesses)
+    bool View::PrintWord(string* word, vector<char>* correctGuesses)
     {
+        bool win = true;
         for (int i = 0; i < word->length(); i++)
         {
             if (std::find(correctGuesses->begin(), correctGuesses->end(), word->at(i)) != correctGuesses->end()) {
@@ -164,7 +165,9 @@ void View::hangman(int attempts)
             else
             {
                 std::cout << dye::green("_");
+                win = false;
             }
         }
         std::cout << std::endl;
+        return win;
     }

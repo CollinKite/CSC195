@@ -44,6 +44,9 @@ char View::getUserChar(string prompt) {
 	cout << prompt;
 	char temp = NULL;
 	cin >> temp;
+    temp = putchar(tolower(temp)); //Make Lowercase
+
+
 
 	return temp;
 }

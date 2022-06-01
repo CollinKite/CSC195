@@ -1,6 +1,6 @@
 #include "Model.h"
 #include <fstream>
-
+#include <algorithm>
 
 Model::Model()
 {
@@ -15,6 +15,9 @@ Model::Model()
 		}
 		srand(time(NULL)); //For Generating Randomness
 		word = &wordList.at(rand() % 854);
+		std::for_each(word->begin(), word->end(), [](char& c) { //Convert word to lowercase
+			c = ::tolower(c);
+			});
 	}
 	
 }
